@@ -1,9 +1,10 @@
 /*
- * MODULES AND SETUP
+ * MODULE IMPORT AND aPP SETUP
  */
 
 const express = require('express');
 const app = express();
+app.set('view engine', 'pug');
 
 /*
  * ROUTES
