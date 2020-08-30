@@ -9,6 +9,8 @@ html(lang="en")
       h2= prompt
       p
         i Hint: #{hint}
-      img(src=`${img}`, alt=`Hey ${name}`)
+      figure
+        img(src=`${img}`, alt=`Hey ${name}`)
+        figcaption Hey #{name}
     footer
       p An app to help you study.
