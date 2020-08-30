@@ -14,8 +14,8 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-app.get('/jankt', (req, res) => {
-  res.send('<h1>Get jankt, dingus.</h1>');
+app.get('/cards', (req, res) => {
+  res.render('card');
 });
 
 /*
