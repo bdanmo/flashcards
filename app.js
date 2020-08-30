@@ -11,7 +11,7 @@ app.set('view engine', 'pug');
  */
 
 app.get('/', (req, res) => {
-  res.send('<h1>Bingo.</h1>');
+  res.render('index.pug');
 });
 
 app.get('/jankt', (req, res) => {
