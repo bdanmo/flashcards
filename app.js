@@ -1,10 +1,18 @@
 /*
- * MODULE IMPORT AND aPP SETUP
+ * MODULE IMPORT AND APP SETUP
  */
 
 const express = require('express');
 const app = express();
 app.set('view engine', 'pug');
+
+const friends = [
+  { name: 'Chris McGuire', first: 'Chris', last: 'McGuire' },
+  { name: 'Stephen Horne', first: 'Stephen', last: 'Horne' },
+  { name: 'Benjamin McGrath', first: 'Benjamin', last: 'McGrath' },
+  { name: 'Ben Drake', first: 'Ben', last: 'Drake' },
+  { name: 'Christopher McGarvey', first: 'Christopher', last: 'McGarvey' }
+];
 
 /*
  * ROUTES
@@ -22,6 +30,11 @@ app.get('/cards', (req, res) => {
     name: 'Booster'
   };
   res.render('card');
+});
+
+app.get('/sandbox', (req, res) => {
+  res.locals = { friends };
+  res.render('sandbox');
 });
 
 /*
