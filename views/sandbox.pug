@@ -1,0 +1,20 @@
+html(lang="en")
+  head
+    title Sandbox
+  body
+    header
+      h1 Sandbox
+    section#content
+      h2 Me Frens
+        if friends
+          table
+            tr
+              th First Name
+              th Last Name
+            each friend in friends
+              tr
+                td= friend.first
+                td= friend.last
+        else
+          h4 I don't have any.
+              
