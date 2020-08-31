@@ -7,8 +7,9 @@ html(lang="en")
       h1 Flashcards
     section#content
       h2= prompt
-      p
-        i Hint: #{hint}
+      if hint
+        p
+          i Hint: #{hint}
       figure
         img(src=`${img}`, alt=`Hey ${name}`)
         figcaption Hey #{name}
