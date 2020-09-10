@@ -15,11 +15,15 @@ const friends = [
 ];
 
 /*
- * ROUTES
+ * GET ROUTES
  */
 
 app.get('/', (req, res) => {
   res.render('index');
+});
+
+app.get('/hello', (req, res) => {
+  res.render('hello');
 });
 
 app.get('/cards', (req, res) => {
@@ -36,6 +40,10 @@ app.get('/sandbox', (req, res) => {
   res.locals = { friends };
   res.render('sandbox');
 });
+
+/*
+ * POST ROUTES
+ */
 
 /*
  * RUN
