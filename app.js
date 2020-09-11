@@ -55,7 +55,7 @@ app.post('/hello', (req, res) => {
   res.locals = {
     username: req.body.username
   };
-  res.render(hello);
+  res.render('hello');
 });
 
 /*
