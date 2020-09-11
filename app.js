@@ -3,7 +3,10 @@
  */
 
 const express = require('express');
+const bodyParser = require('body-parser');
+
 const app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
 app.set('view engine', 'pug');
 
 const friends = [
@@ -23,6 +26,9 @@ app.get('/', (req, res) => {
 });
 
 app.get('/hello', (req, res) => {
+  res.locals = {
+    method: req.method
+  };
   res.render('hello');
 });
 
@@ -44,6 +50,13 @@ app.get('/sandbox', (req, res) => {
 /*
  * POST ROUTES
  */
+
+app.post('/hello', (req, res) => {
+  res.locals = {
+    username: req.body.username
+  };
+  res.render(hello);
+});
 
 /*
  * RUN
