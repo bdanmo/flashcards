@@ -4,9 +4,11 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
 app.set('view engine', 'pug');
 
 const friends = [
@@ -27,7 +29,7 @@ app.get('/', (req, res) => {
 
 app.get('/hello', (req, res) => {
   res.locals = {
-    method: req.method
+    username: req.cookies.username
   };
   res.render('hello');
 });
@@ -52,10 +54,8 @@ app.get('/sandbox', (req, res) => {
  */
 
 app.post('/hello', (req, res) => {
-  res.locals = {
-    username: req.body.username
-  };
-  res.render('hello');
+  res.cookie('username', req.body.username);
+  res.redirect('/');
 });
 
 /*
