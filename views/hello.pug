@@ -1,8 +1,10 @@
 extends layout.pug
 
 block content
-  h2 Welcome, student!
-  form(aciton="/hello", method="post")
-    label Please enter your name:
-    input(type="text", name="username")
-    button(type="submit") Submit
+  if username
+    h2 Welcome, #{username}!
+  else
+    form(aciton="/hello", method="post")
+      label Please enter your name: 
+        input(type="text", name="username")
+      button(type="submit") Submit
