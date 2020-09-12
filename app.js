@@ -24,14 +24,20 @@ const friends = [
  */
 
 app.get('/', (req, res) => {
-  res.render('index');
+  const username = req.cookies.username;
+  if (username) {
+    res.render('index', { username });
+  } else {
+    res.redirect('/hello');
+  }
 });
 
 app.get('/hello', (req, res) => {
-  res.locals = {
-    username: req.cookies.username
-  };
-  res.render('hello');
+  if (req.cookies.username) {
+    res.redirect('/');
+  } else {
+    res.render('hello');
+  }
 });
 
 app.get('/cards', (req, res) => {
@@ -56,6 +62,11 @@ app.get('/sandbox', (req, res) => {
 app.post('/hello', (req, res) => {
   res.cookie('username', req.body.username);
   res.redirect('/');
+});
+
+app.post('/goodbye', (req, res) => {
+  res.clearCookie('username');
+  res.redirect('/hello');
 });
 
 /*
