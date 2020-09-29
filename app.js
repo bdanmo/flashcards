@@ -20,6 +20,20 @@ const friends = [
 ];
 
 /*
+ * CUSOTM MIDDLEWARE
+ */
+
+app.use((req, res, next) => {
+  console.log('Hello');
+  next();
+});
+
+app.use((req, res, next) => {
+  const err = new Error('Oh noes!');
+  next(err);
+});
+
+/*
  * GET ROUTES
  */
 
@@ -60,13 +74,21 @@ app.get('/sandbox', (req, res) => {
  */
 
 app.post('/hello', (req, res) => {
-  res.cookie('username', req.body.username);
+  res.cookie('username', req.body.username); //req.body.username refers to form input
   res.redirect('/');
 });
 
 app.post('/goodbye', (req, res) => {
   res.clearCookie('username');
   res.redirect('/hello');
+});
+
+/*
+ * ERROR HANDLING
+ */
+
+app.use((err, req, res, next) => {
+  res.render('error', { err });
 });
 
 /*
