@@ -5,7 +5,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const routes = require('./routes');
+const mainRoutes = require('./routes');
+const cardRoutes = require('./routes/cards');
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -13,7 +14,8 @@ app.use(cookieParser());
 app.set('view engine', 'pug');
 
 /* ROUTER */
-app.use(routes);
+app.use(mainRoutes);
+app.use('/cards', cardRoutes);
 
 /*
  * CUSOTM MIDDLEWARE

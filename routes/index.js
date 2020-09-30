@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const { friends } = require('../package.json');
+const { friends } = require('../friends.json');
 
 /*
  * GET ROUTES
  */
-
 router.get('/', (req, res) => {
   const username = req.cookies.username;
   if (username) {
@@ -41,7 +40,6 @@ router.get('/sandbox', (req, res) => {
 /*
  * POST ROUTES
  */
-
 router.post('/hello', (req, res) => {
   res.cookie('username', req.body.username); //req.body.username refers to form input
   res.redirect('/');
