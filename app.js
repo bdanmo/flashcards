@@ -21,11 +21,6 @@ app.use('/cards', cardRoutes);
  * CUSTOM MIDDLEWARE
  */
 
-app.use((req, res, next) => {
-  console.log('Hello');
-  next();
-});
-
 /*
  * ERROR HANDLING
  */
