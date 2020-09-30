@@ -4,7 +4,8 @@ const { data } = require('../data/flashcardData.json');
 const { cards } = data;
 
 router.get('/:id', (req, res) => {
-  let id = req.params.id;
+  let { id } = req.params;
+  let { side } = req.query;
   res.locals = {
     prompt: cards[id].question,
     hint: cards[id].hint,
