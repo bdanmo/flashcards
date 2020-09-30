@@ -6,6 +6,10 @@ block content
     if hint
       p
         i Hint: #{hint}
+    if side === 'question'    
+      a(href=`${id}?side=answer`) Answer
+    else if side === 'answer'
+      a(href=`${id}?side=question`) Question
     figure
       img(src=`${img}`, alt=`Hey ${name}`)
       figcaption Hey #{name}
