@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { friends } = require('../friends.json');
+const { friends } = require('../data/friends.json');
 
 /*
  * GET ROUTES
