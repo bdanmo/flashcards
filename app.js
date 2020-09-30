@@ -18,7 +18,7 @@ app.use(mainRoutes);
 app.use('/cards', cardRoutes);
 
 /*
- * CUSOTM MIDDLEWARE
+ * CUSTOM MIDDLEWARE
  */
 
 app.use((req, res, next) => {
