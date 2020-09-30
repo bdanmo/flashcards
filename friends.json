@@ -1,0 +1,9 @@
+{
+  "friends": [
+    { "name": "Chris McGuire", "first": "Chris", "last": "McGuire" },
+    { "name": "Stephen Horne", "first": "Stephen", "last": "Horne" },
+    { "name": "Benjamin McGrath", "first": "Benjamin", "last": "McGrath" },
+    { "name": "Ben Drake", "first": "Ben", "last": "Drake" },
+    { "name": "Christopher McGarvey", "first": "Christopher", "last": "McGarvey" }
+  ]
+}
