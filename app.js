@@ -28,11 +28,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use((req, res, next) => {
-  const err = new Error('Oh noes!');
-  next(err);
-});
-
 /*
  * GET ROUTES
  */
@@ -87,7 +82,14 @@ app.post('/goodbye', (req, res) => {
  * ERROR HANDLING
  */
 
+app.use((req, res, next) => {
+  const err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
 app.use((err, req, res, next) => {
+  res.status(err.status);
   res.render('error', { err });
 });
 
