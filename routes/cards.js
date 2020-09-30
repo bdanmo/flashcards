@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/cards', (req, res) => {
+router.get('/', (req, res) => {
   res.locals = {
     prompt: "Who is buried in Grant's tomb?",
     hint: 'Think about whose tomb it is.',
@@ -10,3 +10,5 @@ router.get('/cards', (req, res) => {
   };
   res.render('card');
 });
+
+module.exports = router;
