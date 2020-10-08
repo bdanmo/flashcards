@@ -11,7 +11,7 @@ block content
     else if side === 'answer'
       a(href=`${id}?side=question`) Question
     br
-    a(href=`/cards/${id === lastCardId ? id + 1 : id - lastCardId}`) Next card!
+    a(href=`/cards/${+id === lastCardId ? +id - lastCardId : +id + 1}`) Next card!
     figure
       img(src=`${img}`, alt=`Hey ${name}`)
       figcaption Hey #{name}
