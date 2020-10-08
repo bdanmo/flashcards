@@ -6,7 +6,7 @@ const { friends } = require('../data/friends.json');
  * GET ROUTES
  */
 router.get('/', (req, res) => {
-  const username = req.cookies.username;
+  const { username } = req.cookies;
   if (username) {
     res.render('index', { username });
   } else {

@@ -4,8 +4,8 @@ html(lang="en")
     title Flashcards
   body
     include includes/header.pug
-
-    h2 Welcome, #{username}!
+    if username
+      h2 Welcome, #{username}!
     form(action="/goodbye" method="post")
       button(type="submit") Goodbye!
 
