@@ -12,8 +12,8 @@ router.get('/:id', (req, res) => {
   const { id } = req.params;
   const { side } = req.query; //will refer to question or answer in card data
 
-  if (!req.query.side || side === 'hint') {
-    res.redirect(`/cards/${id}?side=question`);
+  if (!side || side === 'hint') {
+    return res.redirect(`/cards/${id}?side=question`);
   }
 
   res.locals = {

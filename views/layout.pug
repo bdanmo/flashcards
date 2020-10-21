@@ -6,8 +6,8 @@ html(lang="en")
     include includes/header.pug
     if username
       h2 Welcome, #{username}!
-    form(action="/goodbye" method="post")
-      button(type="submit") Goodbye!
+      form(action="/goodbye" method="post")
+        button(type="submit") Goodbye!
 
     block content
 
