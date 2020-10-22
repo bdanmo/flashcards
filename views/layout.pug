@@ -5,12 +5,5 @@ html(lang="en")
     link(rel="stylesheet", href="/static/stylesheets/style.css")
   body
     include includes/header.pug
-    if username
-      h2 Welcome, #{username}!
-      form(action="/goodbye" method="post")
-        button(type="submit") Goodbye!
-
-    block content
-
-    include includes/footer.pug
+    block main
     

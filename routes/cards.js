@@ -12,7 +12,7 @@ router.get('/:id', (req, res) => {
   const { id } = req.params;
   const { side } = req.query; //will refer to question or answer in card data
 
-  if (!side || side === 'hint') {
+  if (!side) {
     return res.redirect(`/cards/${id}?side=question`);
   }
 
@@ -21,13 +21,16 @@ router.get('/:id', (req, res) => {
     side,
     text: cards[id][side],
     lastCardId: cards.length - 1,
-    username: req.cookies.username,
-    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT0F7y3MjYFAS-BkaeNyMUAxRNKqoSKkYXn9A&usqp=CAU',
-    name: 'Booster'
+    username: req.cookies.username
   };
 
   if (side === 'question') {
     res.locals.hint = cards[id]['hint'];
+    res.locals.sideToShow = 'answer'
+  }
+
+  if (side === 'answer') { 
+    res.locals.sideToShow = 'question'
   }
 
   res.render('card');
