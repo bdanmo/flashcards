@@ -16,5 +16,6 @@ block card
       .card-next
         a(href=`/cards/${+id === lastCardId ? +id - lastCardId : +id + 1}`)
           img(src='/static/img/next.svg')
-    script(src='/static/app.js')
+    if side === 'question'
+      script(src='/static/js/app.js')
     

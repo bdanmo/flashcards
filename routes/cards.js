@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   const { id } = req.params;
-  const { side } = req.query; //will refer to question or answer in card data
+  const { side } = req.query;
 
   if (!side) {
     return res.redirect(`/cards/${id}?side=question`);
