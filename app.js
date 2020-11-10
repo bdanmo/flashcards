@@ -36,12 +36,3 @@ app.use((err, req, res, next) => {
   res.status(err.status);
   res.render('error', { err });
 });
-
-/*
- * RUN
- */
-
-/* app.listen(3000, () => {
-  console.log('The app is running on localhost:3000!');
-});
- */
